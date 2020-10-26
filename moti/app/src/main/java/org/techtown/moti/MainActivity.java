@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        mainfragment = (mainfragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        //mainfragment = (mainfragment) getSupportFragmentManager().findFragmentById(R.id.fragment);  //이부분 잠시 고칠 예정
+        mainfragment = new mainfragment();
         localfragment = new localfragment();
         schoolfragment = new schoolfragment();
 
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onFragmentchaged(int idx){
-        if(idx == 1){
+       /* if(idx == 1){
             getSupportFragmentManager().beginTransaction().replace(R.id.container,mainfragment).commit();
         }
         else if(idx == 2){
@@ -74,8 +75,19 @@ public class MainActivity extends AppCompatActivity {
 
         else if(idx == 3){
             getSupportFragmentManager().beginTransaction().replace(R.id.container,localfragment).commit();
-        }
+        }*/
 
+        switch(idx){
+            case 1:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,mainfragment).commit();
+                break;
+            case 2:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,schoolfragment).commit();
+                break;
+            case 3:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container,localfragment).commit();
+                break;
+        }
 //        else if(idx == 2){
 //            getSupportFragmentManager().beginTransaction().replace(R.id.container,mainFragment).commit();
 //        }
